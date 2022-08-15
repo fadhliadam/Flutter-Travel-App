@@ -18,6 +18,7 @@ class DaftarTiketScreen extends StatelessWidget {
   final bool? pulangPergi;
   final List<int> penumpang;
   List namaBulan = [
+    null,
     'Jan',
     'Feb',
     'Mar',
