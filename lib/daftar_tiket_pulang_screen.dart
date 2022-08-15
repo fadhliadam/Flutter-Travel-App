@@ -16,6 +16,7 @@ class DaftarTiketPulangScreen extends StatelessWidget {
     decimalDigits: 0,
   );
   final List namaBulan = [
+    null,
     'Jan',
     'Feb',
     'Mar',
