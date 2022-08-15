@@ -1,3 +1,4 @@
+import 'package:Travel/warna.dart';
 import 'package:flutter/material.dart';
 import 'package:Travel/separator.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -40,7 +41,9 @@ class DataPenumpangScreen extends StatefulWidget{
 }
 
 class _DataPenumpangScreen extends State<DataPenumpangScreen>{
+  bool assuranceIsChecked = true;
   List namaBulan = [
+    null,
     'Jan',
     'Feb',
     'Mar',
@@ -96,7 +99,7 @@ class _DataPenumpangScreen extends State<DataPenumpangScreen>{
         ),
         elevation: 1,
       ),
-      body: Column(
+      body: ListView(
         children: [
           Container(
             margin: const EdgeInsets.all(14),
@@ -113,12 +116,12 @@ class _DataPenumpangScreen extends State<DataPenumpangScreen>{
                 ]),
             child: Container(
               margin: const EdgeInsets.only(top: 10, left: 10, right: 10),
-              height: 135,
+              height: 123,
               width: 300,
               child: Column(
                 children: [
                   Container(
-                    height: 90,
+                    height: 85,
                     margin: const EdgeInsets.symmetric(horizontal: 10),
                     child: Column(
                       children: [
@@ -192,7 +195,7 @@ class _DataPenumpangScreen extends State<DataPenumpangScreen>{
                   const Separator(color: Colors.grey, dashWidth: 8.0),
                   Container(
                     padding: const EdgeInsets.symmetric(
-                        vertical: 12, horizontal: 10),
+                        vertical: 10, horizontal: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -228,7 +231,7 @@ class _DataPenumpangScreen extends State<DataPenumpangScreen>{
             ),
           ),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 35.0),
+            padding: const EdgeInsets.only(left: 30.0, right: 30.0, bottom: 20.0),
             child: Column(
               children: [
                 Row(
@@ -278,6 +281,187 @@ class _DataPenumpangScreen extends State<DataPenumpangScreen>{
                   ],
                 )
               ],
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: const Text(
+                        'Data Pemesan',
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: (){},
+                        icon: Icon(
+                          Icons.edit_outlined,
+                          size: 26,
+                        )
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Nama',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      'Lorem Ipsum',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+                Divider(
+                    color: Colors.grey
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Nomor Telepon',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      '08421321321',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+                Divider(
+                    color: Colors.grey
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Email',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      'Lorem@gmail.com',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 28.0),
+            decoration: BoxDecoration(
+                color: const Color(0xFFFFFFFF),
+                border: Border.all(color: Colors.grey.shade100),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      spreadRadius: 1,
+                      blurRadius: 5,
+                      offset: const Offset(0, 5))
+                ]),
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 25.0),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'Asuransi Perjalanan',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: (){
+                          setState(() {
+                            assuranceIsChecked = !assuranceIsChecked;
+                          });
+                        },
+                        child: assuranceIsChecked? Icon(
+                          Icons.check_circle,
+                          size: 26,
+                          color: biru,
+                        ):Icon(
+                          Icons.circle_outlined,
+                          size: 26,
+                        )
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15.0, bottom: 15.0, right: 17.0),
+                    child: Text(
+                      'Nikmati perjalanan anda dengan aman dan nyaman',
+                      style: TextStyle(
+                        fontSize: 17,
+                      ),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        'Rp',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        '50.000',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                        ),
+                      ),
+                      Expanded(
+                        child: Text(
+                          '/orang',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                      Text(
+                        'Selengkapnya',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: biru.shade600
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ],
